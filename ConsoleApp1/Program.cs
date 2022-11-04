@@ -11,7 +11,8 @@ namespace CSharpMasterClass
             // Section2_Datatypes.StringChallenge();
             // Section2_Datatypes.DataTypesAndVariables();
             // Section2_Datatypes.Constants();
-            Section3_FunctionsMethods.Section3Main();
+            // Section3_FunctionsMethods.Section3Main();
+            Section4_Decisions.Section4Main();
         }
     }
 }
