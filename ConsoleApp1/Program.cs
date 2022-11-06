@@ -12,7 +12,8 @@ namespace CSharpMasterClass
             // Section2_Datatypes.DataTypesAndVariables();
             // Section2_Datatypes.Constants();
             // Section3_FunctionsMethods.Section3Main();
-            Section4_Decisions.Section4Main();
+            // Section4_Decisions.Section4Main();
+            Section5_Loops.Section5Main();
 
             Console.Read();
         }
