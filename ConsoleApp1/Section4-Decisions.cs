@@ -13,12 +13,23 @@ namespace CSharpMasterClass
 
         public static void Section4Main()
         {
-            Register();
-            Login();
+            TernaryExample();
+
+            // Register();
+            // Login();
 
             // Check(-2);
             // TryParseExample();
 
+        }
+
+        private static void TernaryExample()
+        {
+            int temp = 101;
+            string stateOfMatter;
+
+            stateOfMatter = (temp < 0) ? "solid" : (temp > 100) ? "gas" : "liquid";
+            Console.WriteLine(stateOfMatter);
         }
 
         public static void Register()
