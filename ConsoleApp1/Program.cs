@@ -13,7 +13,8 @@ namespace CSharpMasterClass
             // Section2_Datatypes.Constants();
             // Section3_FunctionsMethods.Section3Main();
             // Section4_Decisions.Section4Main();
-            Section5_Loops.Section5Main();
+            // Section5_Loops.Section5Main();
+            Section6_OOP.Section6Main();
 
             Console.Read();
         }
