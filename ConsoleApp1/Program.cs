@@ -14,7 +14,8 @@ namespace CSharpMasterClass
             // Section3_FunctionsMethods.Section3Main();
             // Section4_Decisions.Section4Main();
             // Section5_Loops.Section5Main();
-            Section6_OOP.Section6Main();
+            // Section6_OOP.Section6Main();
+            Section7_Collections.Section7Main();
 
             Console.Read();
         }

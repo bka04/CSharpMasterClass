@@ -13,6 +13,14 @@ namespace CSharpMasterClass
         private int height;
         // private int volume;
 
+        public int FrontSurface
+        {
+            get
+            {
+                return this.length * this.height;
+            }
+        }
+
         public Box(int length, int width, int height)
         {
             this.length = length;
