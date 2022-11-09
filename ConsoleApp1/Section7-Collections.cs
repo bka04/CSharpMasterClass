@@ -10,8 +10,63 @@ namespace CSharpMasterClass
     {
         public static void Section7Main()
         {
-            Arrays();
+            // Arrays();
+            ForEachLoops();
+            // MultiDimensionalArrays();
 
+
+        }
+
+        private static void MultiDimensionalArrays()
+        {
+            // declare 2d array
+            string[,] matrix;
+
+            // 3d array
+            int[,,] threeD;
+
+            // 2d array
+            int[,] array2D = new int[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+            };
+
+            Console.WriteLine($"Central value is {array2D[1,1]}");
+
+        }
+
+        private static void ForEachLoops()
+        {
+            int[] nums = new int[10];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                nums[i] = i + 10;
+            }
+
+            for (int j = 0; j < nums.Length; j++)
+            {
+                Console.WriteLine(nums[j]);
+            }
+
+            foreach(int k in nums)
+            {
+                Console.WriteLine(k);
+            }
+
+            string[] friends = { "Tiffany", "Kelsey", "Nicole", "Mike", "Zach" };
+            foreach (string friend in friends)
+            {
+                Console.WriteLine($"Hello, {friend}");
+            }
+
+            string[] eFriends = friends.Where(friend => friend.Contains("e")).ToArray();
+            foreach(string friend in eFriends)
+            {
+                Console.WriteLine(friend);
+            }
 
         }
 
