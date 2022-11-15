@@ -14,8 +14,48 @@ namespace CSharpMasterClass
             // ForEachLoops();
             // MultiDimensionalArrays();
             // NestedForLoops();
-            TicTacToeChecker();
+            // TicTacToeChecker();
+            JaggedArrays(); //array or multiple arrays within an array
 
+
+        }
+
+        public static void JaggedArrays()
+        {
+            int[][] jaggedArray = new int[3][]; // 3 arrays within the array
+
+            jaggedArray[0] = new int[5];
+            jaggedArray[1] = new int[3];
+            jaggedArray[2] = new int[2];
+
+            jaggedArray[0] = new int[] { 2, 3, 5, 7, 11 };
+            jaggedArray[1] = new int[] { 1, 2, 3 };
+            jaggedArray[2] = new int[] { 13, 21 };
+
+            // alternative way:
+            int[][] jaggedArray2 = new int[][]
+            {
+                new int[] { 2, 3, 5, 7, 11 },
+                new int[] { 1, 2, 3 },
+                new int[] { 13, 21 }
+            };
+
+            // Console.WriteLine($"Middle value of first entry is: {jaggedArray2[0][2]}");
+
+            for (int i = 0; i < jaggedArray2.Length; i++)
+            {
+                for (int j = 0; j < jaggedArray2[i].Length; j++) {
+                    Console.WriteLine($"Element {j} of array {i}: {jaggedArray2[i][j]}"); 
+                }
+            }
+
+            foreach(int[] intArray in jaggedArray2)
+            {
+                foreach(int i in intArray)
+                {
+                    Console.WriteLine(i);
+                }
+            }
 
         }
 
