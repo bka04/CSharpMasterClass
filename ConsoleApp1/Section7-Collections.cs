@@ -15,9 +15,121 @@ namespace CSharpMasterClass
             // MultiDimensionalArrays();
             // NestedForLoops();
             // TicTacToeChecker();
-            JaggedArrays(); //array or multiple arrays within an array
+            // JaggedArrays(); //array or multiple arrays within an array
+            // JaggedArrayChallenge();
+            // ArraysAsParams();
+            Params();
+
+        }
+
+        public static void Params()
+        {
+
+            int min = MinV2(3, 2352, -40, 23, 65767, -5);
+            Console.WriteLine(min);
+
+            // Console.WriteLine("Price is {0}, pi is {1}, at is {2}", 32, 3.14, '@');
+            //ParamsMethod("This", "is", "a", "lot", "of", "strings", "and", "it", "just", "keeps", "going", "...");
+
+            //int price = 50;
+            //float pi = 3.14f;
+            //char at = '@';
+            //string book = "The Hobbit";
+
+            //ParamsMethod2(price, pi, at, book);
+        }
+
+        public static int MinV2(params int[] numbers)
+        {
+            int min = int.MaxValue; // highest possible value an integer can have
+            foreach (int number in numbers)
+            {
+                if (number < min)
+                {
+                    min = number;
+                }
+            }
+            return min;
+        }
 
 
+        public static void ParamsMethod(params string[] sentence)
+        {
+            for (int i = 0; i < sentence.Length; i++)
+            {
+                Console.Write(sentence[i] + " ");
+            }
+            Console.WriteLine("");
+        }
+
+        public static void ParamsMethod2(params object[] stuff)
+        {
+            //for each loop to go through the array of objects
+            foreach(object obj in stuff)
+            {
+                //print each object followed by a space
+                Console.WriteLine(obj + " ");
+            }
+        }
+
+
+        public static void ArraysAsParams()
+        {
+            int[] studentsGrades = new int[] { 15, 13, 8, 12, 6, 16 };
+            double averageResult = GetAverage(studentsGrades);
+
+            foreach(int grade in studentsGrades)
+            {
+                Console.WriteLine(grade);
+            }
+
+            Console.WriteLine($"The average is {averageResult}");
+
+
+            int[] happiness = new int[] { 3, 6, 4, 5, 5 };
+            SunIsShining(happiness);
+            foreach (int happyScore in happiness)
+            {
+                Console.WriteLine(happyScore);
+            }
+
+        }
+
+        private static void SunIsShining(int[] happinessArray)
+        {
+            for (int i = 0; i < happinessArray.Length; i++)
+            {
+                happinessArray[i] += 2;
+            }
+        }
+
+
+        static double GetAverage(int[] gradesArray)
+        {
+            int size = gradesArray.Length;
+            double average;
+            int sum = 0;
+
+            for (int i = 0; i < size; i++)
+            {
+                sum += gradesArray[i];
+            }
+
+            average = (double)sum / size;
+            return average;
+        }
+
+
+
+        public static void JaggedArrayChallenge()
+        {
+            string[][] friends = new string[][]
+            {
+                new string[] {"Bob", "Joe" },
+                new string[] {"Sherry", "Mary" }
+            };
+
+            Console.WriteLine($"{friends[0][0]} and {friends[0][1]}, meet {friends[1][0]} and {friends[1][1]}.");
         }
 
         public static void JaggedArrays()
