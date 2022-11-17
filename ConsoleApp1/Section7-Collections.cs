@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpMasterClass
 {
@@ -18,7 +17,88 @@ namespace CSharpMasterClass
             // JaggedArrays(); //array or multiple arrays within an array
             // JaggedArrayChallenge();
             // ArraysAsParams();
-            Params();
+            // Params();
+            // ArrayLists();
+            Lists();
+
+        }
+
+        public static void Lists()
+        {
+            // Examples
+            var numbers = new List<int>();
+            numbers.Add(10);
+            numbers.Add(15);
+            numbers.Clear();
+
+            var moreNumbers = new List<int> { 5, 10, 15, 20, 25, 30 };
+
+            foreach (int i in moreNumbers)
+            {
+                Console.WriteLine(i);
+            }
+
+            for (int i = 0; i < moreNumbers.Count; i++)
+            {
+                Console.WriteLine(moreNumbers[i]);
+            }
+
+            // Exercise
+            var solutionList = CodingExercise9();
+            foreach (int i in solutionList)
+            {
+                Console.Write($"{i} ");
+            }
+        }
+
+        private static List<int> CodingExercise9()
+        {
+            var myList = new List<int>();
+
+            for (int i = 100; i <= 170; i += 2)
+            {
+                myList.Add(i);
+            }
+
+            return myList;
+        }
+
+        public static void ArrayLists()
+            // Microsoft does not recommend to use this for new development. Use List<Object> instead for heterogeneous collection of objects.
+            // For homogenous collection of objects, use List<T>
+        {
+            ArrayList myArrayList = new ArrayList(); // with indefinite amount of objects
+            ArrayList myArrayList2 = new ArrayList(100); // with defined amount of objects
+
+            myArrayList.Add(345);
+            myArrayList.Add(new int[] { 3, 4, 5 });
+            myArrayList.Add(13);
+            myArrayList.Add(100);
+            myArrayList.Add("Hello");
+            myArrayList.Add(13.37);
+
+            myArrayList.Remove(13); // delete element with specific value from arraylist
+            myArrayList.RemoveAt(1); // delete element at specific position
+            Console.WriteLine($"The array list has {myArrayList.Count} elements.");
+
+            double sum = 0;
+
+            foreach(object obj in myArrayList)
+            {
+                if (obj is int)
+                {
+                    sum += Convert.ToDouble(obj);
+                } else if (obj is double)
+                {
+                    sum += (double)obj;
+                } else if (obj is string)
+                {
+                    Console.WriteLine(obj);
+                }
+            }
+
+            Console.WriteLine($"Sum is {sum}");
+
 
         }
 
