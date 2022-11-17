@@ -5,6 +5,19 @@ using System.Linq;
 
 namespace CSharpMasterClass
 {
+    class Student
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public float GPA { get; set; }
+        public Student(int id, string name, float GPA)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.GPA = GPA;
+        }
+    }
+
     class Section7_Collections
     {
         public static void Section7Main()
@@ -19,10 +32,97 @@ namespace CSharpMasterClass
             // ArraysAsParams();
             // Params();
             // ArrayLists();
-            Lists();
+            // Lists();
+            // Hashtables();
+            HashtablesChallenge();
+            // Dictionaries();
 
         }
 
+
+        public static void Dictionaries()
+        {
+            // key - value. Dictionary is for same data type for key and value
+
+
+
+        }
+
+        public static void HashtablesChallenge()
+        {
+            Student[] students = new Student[5];
+            students[0] = new Student(1, "Denis", 88);
+            students[1] = new Student(2, "Olaf", 97);
+            students[2] = new Student(6, "Ragner", 65);
+            students[3] = new Student(1, "Luise", 73);
+            students[4] = new Student(4, "Levi", 58);
+
+            // add students from array into hashtable
+            Hashtable studentsTable = new Hashtable();
+            foreach (Student student in students)
+            {
+                if (studentsTable.ContainsKey(student.Id)) {
+                    Console.WriteLine("Sorry, a student with the same ID already exists.");
+                    Console.WriteLine("");
+                } else
+                {
+                    studentsTable.Add(student.Id, student);
+                }
+            }
+
+            // display students in hashtable
+            foreach (Student value in studentsTable.Values)
+            {
+                Console.WriteLine($"Student ID:{value.Id}");
+                Console.WriteLine($"Student Name:{value.Name}");
+                Console.WriteLine($"Student GPA:{value.GPA}");
+                Console.WriteLine("");
+            }
+        }
+
+        public static void Hashtables()
+        {
+            // key - value. Hashtable is for different data types for key and value
+            Hashtable studentsTable = new Hashtable();
+
+            Student stud1 = new Student(1, "Maria", 98);
+            Student stud2 = new Student(2, "Jason", 76);
+            Student stud3 = new Student(3, "Clara", 43);
+            Student stud4 = new Student(4, "Steve", 55);
+
+            studentsTable.Add(stud1.Id, stud1);
+            studentsTable.Add(stud2.Id, stud2);
+            studentsTable.Add(stud3.Id, stud3);
+            studentsTable.Add(stud4.Id, stud4);
+
+            // retrieve individual item with known ID
+            // Student storedStudent1 = (Student)studentsTable[1];
+            Student storedStudent1 = (Student)studentsTable[stud1.Id];
+
+            // retrieve all values from a Hashtable using DictionaryEntry
+            foreach(DictionaryEntry entry in studentsTable)
+            {
+                Student temp = (Student)entry.Value;
+                Console.WriteLine($"Student ID:{temp.Id}");
+                Console.WriteLine($"Student Name:{temp.Name}");
+                Console.WriteLine($"Student GPA:{temp.GPA}");
+                Console.WriteLine("");
+            }
+
+            // shortcut! Use studentsTable.Values
+            foreach (Student value in studentsTable.Values)
+            {
+                Console.WriteLine($"Student ID:{value.Id}");
+                Console.WriteLine($"Student Name:{value.Name}");
+                Console.WriteLine($"Student GPA:{value.GPA}");
+                Console.WriteLine("");
+            }
+
+
+
+        }
+
+        
         public static void Lists()
         {
             // Examples
