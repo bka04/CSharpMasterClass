@@ -18,6 +18,28 @@ namespace CSharpMasterClass
         }
     }
 
+    class Employee
+    {
+        public string Role { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public float Rate { get; set; }
+
+        public float Salary { get
+            {
+                return Rate * 8 * 5 * 4 * 12;
+            }
+        }
+
+        public Employee(string role, string name, int age, float rate)
+        {
+            this.Role = role;
+            this.Name = name;
+            this.Age = age;
+            this.Rate = rate;
+        }
+    }
+
     class Section7_Collections
     {
         public static void Section7Main()
@@ -34,18 +56,104 @@ namespace CSharpMasterClass
             // ArrayLists();
             // Lists();
             // Hashtables();
-            HashtablesChallenge();
+            // HashtablesChallenge();
             // Dictionaries();
+            Console.WriteLine(DictionaryCodingExercise(2));
+            Console.WriteLine(DictionaryCodingExercise(37));
 
+        }
+
+        public static string DictionaryCodingExercise(int intKey)
+        {
+            Dictionary<int, string> bestDictionaryEver = new Dictionary<int, string>()
+            {
+                {0, "zero"},
+                {1, "one" },
+                {2, "two" },
+                {3, "three" },
+                {4, "four" },
+                {5, "five" }
+            };
+
+            string bestValueEver;
+            if (bestDictionaryEver.TryGetValue(intKey, out bestValueEver))
+            {
+                return bestValueEver;
+            } else
+            {
+                return "nope";
+            }
         }
 
 
         public static void Dictionaries()
         {
-            // key - value. Dictionary is for same data type for key and value
+            // key - value. Dictionary is for consistent data types (all keys are same; all values are same)
+            //Dictionary<int, string> myDictionary = new Dictionary<int, string>() {
+            //    { 1, "one" },
+            //    { 2, "two"},
+            //    { 3, "three"}
+            //};
+
+            Employee[] employees =
+            {
+                new Employee("CEO", "Gwyn", 95, 200),
+                new Employee("Manager", "Joe", 35, 25),
+                new Employee("HR", "Lora", 32, 21),
+                new Employee("Secretary", "Petra", 28, 18),
+                new Employee("Lead Developer", "Artorias", 55, 35),
+                new Employee("Intern", "Ernest", 22, 8),
+            };
+
+            Dictionary<string, Employee> employeesDirectory = new Dictionary<string, Employee>();
+            foreach (Employee emp in employees)
+            {
+                employeesDirectory.Add(emp.Role, emp);
+            }
 
 
+            // Update
+            string keyToUpdate = "HR";
+            if (employeesDirectory.ContainsKey(keyToUpdate))
+            {
+                employeesDirectory[keyToUpdate] = new Employee("HR", "Eleka", 26, 18);
+            }
 
+
+            // Remove
+            string keyToRemove = "Intern";
+            if (employeesDirectory.Remove(keyToRemove))
+            {
+                Console.WriteLine("Employee with Role/Key {0} was removed!", keyToRemove);
+            }
+
+            for (int i = 0; i < employeesDirectory.Count; i++)
+            {
+                KeyValuePair<string, Employee> keyValuePair = employeesDirectory.ElementAt(i);
+
+                Console.WriteLine($"Key: {keyValuePair.Key}");
+                Employee employeeValue = keyValuePair.Value;
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salaray: {2}", employeeValue.Name, employeeValue.Role, employeeValue.Salary);
+
+            }
+
+            Console.WriteLine("");
+            string key = "CEO";
+            if(employeesDirectory.ContainsKey(key))
+            {
+                Employee empl = employeesDirectory[key]; // get value from key
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salaray: {2}", empl.Name, empl.Role, empl.Salary);
+            }
+
+            Employee result = null;
+            if (employeesDirectory.TryGetValue("Intern", out result))
+            {
+                Console.WriteLine("Employee Name: {0}, Role: {1}, Salaray: {2}", result.Name, result.Role, result.Salary);
+            } else
+            {
+                Console.WriteLine("Key does not exist");
+            }
+            
         }
 
         public static void HashtablesChallenge()
@@ -82,7 +190,7 @@ namespace CSharpMasterClass
 
         public static void Hashtables()
         {
-            // key - value. Hashtable is for different data types for key and value
+            // key - value. Hashtable is for different data types. You don't have to stick to the same like dictionaries
             Hashtable studentsTable = new Hashtable();
 
             Student stud1 = new Student(1, "Maria", 98);
