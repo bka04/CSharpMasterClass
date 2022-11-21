@@ -6,7 +6,17 @@ namespace CSharpMasterClass
         public static void Section9Main()
         {
             // InheritanceExample();
-            InheritanceExample2();
+            // InheritanceExample2();
+            InheritanceExample3();
+        }
+
+        public static void InheritanceExample3()
+        {
+            Post post1 = new Post("Thanks for the birhtday wishes", true, "Denis");
+            Console.WriteLine(post1.ToString());
+
+            ImagePost imagePost1 = new ImagePost("Check out my new shoes", true, "Denis", "www.shoes.com");
+            Console.WriteLine(imagePost1);
         }
 
         public static void InheritanceExample2()
@@ -31,6 +41,7 @@ namespace CSharpMasterClass
             myTV.SwitchOn();
             myTV.WatchTV();
         }
+
     }
 }
 
