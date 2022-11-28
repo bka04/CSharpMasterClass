@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace CSharpMasterClass
 {
     public class Section9_Inheritance
@@ -8,7 +10,107 @@ namespace CSharpMasterClass
             // InheritanceExample();
             // InheritanceExample2();
             // InheritanceExample3();
-            InheritanceExample4();
+            // InheritanceExample4();
+            // InterfaceExample();
+            // InterfaceExample2();
+            // IEnumerableExample();
+            IEnumerableExample2();
+        }
+
+        public static void IEnumerableExample2()
+        {
+            List<int> numberList = new List<int>() { 8, 6, 2 };
+            int[] numberArray = new int[] { 1, 7, 1, 3 };
+            Console.WriteLine(" ");
+            CollectionSum(numberList);
+            Console.WriteLine(" ");
+            CollectionSum(numberArray);
+        }
+
+        static void CollectionSum(IEnumerable<int> anyCollection)
+        {
+            int sum = 0;
+
+            foreach (int num in anyCollection)
+            {
+                sum += num;
+            }
+
+            Console.WriteLine($"Sum is {sum}");
+
+        }
+
+        public static void IEnumerableExample()
+        {
+            IEnumerable<int> unknownCollection;
+            unknownCollection = GetCollection(1);
+
+            Console.WriteLine("This is a List<int>");
+            foreach (int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine("");
+
+            unknownCollection = GetCollection(2);
+            Console.WriteLine("This is a Queue<int>");
+            foreach (int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+            Console.WriteLine("");
+
+            unknownCollection = GetCollection(5);
+            Console.WriteLine("This is an Array of type int");
+            foreach (int num in unknownCollection)
+            {
+                Console.Write(num + " ");
+            }
+
+
+        }
+
+        static IEnumerable<int> GetCollection(int option)
+        {
+            List<int> numbersList = new List<int>() { 1, 2, 3, 4, 5 };
+
+            Queue<int> numbersQueue = new Queue<int>();
+            numbersQueue.Enqueue(6);
+            numbersQueue.Enqueue(7);
+            numbersQueue.Enqueue(8);
+            numbersQueue.Enqueue(9);
+            numbersQueue.Enqueue(10);
+
+            if (option == 1)
+            {
+                return numbersList;
+            } else if (option == 2)
+            {
+                return numbersQueue;
+            } else
+            {
+                return new int[] { 11, 12, 13, 14, 15 };
+            }
+        }
+
+        public static void InterfaceExample2()
+        {
+            Chair officeChair = new Chair("Brown", "Plastic");
+            Chair gamingChair = new Chair("Red", "Wood");
+
+            Car damagedCar = new Car(80f, "Blue");
+
+            damagedCar.DestroyablesNearby.Add(officeChair);
+            damagedCar.DestroyablesNearby.Add(gamingChair);
+
+            damagedCar.Destroy();
+        }
+
+        public static void InterfaceExample()
+        {
+            Ticket t1 = new Ticket(10);
+            Ticket t2 = new Ticket(10);
+            Console.WriteLine(t2.Equals(t1));
         }
 
         public static void InheritanceExample4()
