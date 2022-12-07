@@ -7,7 +7,24 @@ namespace CSharpMasterClass
     {
         public static void Section10Main()
         {
-            Example1();
+            AbstractExample();
+            //Example1();
+        }
+
+        public static void AbstractExample()
+        {
+            // Shape shape1 = new Shape(); // can't do this because it is an abstract class
+            Cube cube1 = new Cube(4.45);
+            // cube1.GetInfo();
+            Sphere sphere1 = new Sphere(3.89);
+            // sphere1.GetInfo();
+
+            Shape[] shapes = { cube1, sphere1 };
+            foreach(Shape shape in shapes)
+            {
+                shape.GetInfo();
+            }
+
         }
 
         public static void Example1()
