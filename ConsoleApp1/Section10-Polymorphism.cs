@@ -7,8 +7,11 @@ namespace CSharpMasterClass
     {
         public static void Section10Main()
         {
+
             AbstractExample();
             //Example1();
+            //WriteTextFileExample();
+            //ReadTextFileExample();
         }
 
         // Notes on interfaces vs abstract classes
@@ -34,6 +37,7 @@ namespace CSharpMasterClass
         //      classes can extend (inherit) one class only
         //      classes must implement abstract members only
         //      what an object IS
+
 
         public static void AbstractExample()
         {
@@ -65,8 +69,6 @@ namespace CSharpMasterClass
                 Console.WriteLine($"{cube2.Name} has a volume of {cube2.Volume()}");
 
             }
-
-
         }
 
         public static void Example1()
@@ -103,7 +105,29 @@ namespace CSharpMasterClass
 
         }
 
+        public static void WriteTextFileExample()
+        {
+            string[] lines = { "first line", "second line", "third line" };
 
+            System.IO.File.WriteAllLines(@"/Users/brentaronsen/Projects/CSharpMasterClass/ConsoleApp1/TextFile2.txt", lines);
+
+
+        }
+
+        public static void ReadTextFileExample()
+        {
+            string text = System.IO.File.ReadAllText(@"/Users/brentaronsen/Projects/CSharpMasterClass/ConsoleApp1/TextFile.txt");
+
+            Console.WriteLine("Textfile contains following text: {0}", text);
+
+            string[] lines = System.IO.File.ReadAllLines(@"/Users/brentaronsen/Projects/CSharpMasterClass/ConsoleApp1/TextFile.txt");
+
+            Console.WriteLine("Contents of TextFile.txt: ");
+            foreach (string line in lines)
+            {
+                Console.WriteLine("\t" + line);
+            }
+        }
 
     }
 }
