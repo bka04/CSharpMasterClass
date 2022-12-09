@@ -17,7 +17,8 @@ namespace CSharpMasterClass
             // Section6_OOP.Section6Main();
             // Section7_Collections.Section7Main();
             // Section9_Inheritance.Section9Main();
-            Section10_Polymorphism.Section10Main();
+            // Section10_Polymorphism.Section10Main();
+            Section11_AdditionalTopics.Section11Main();
 
             Console.Read();
         }
