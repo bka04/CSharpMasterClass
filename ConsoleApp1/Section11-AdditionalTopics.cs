@@ -11,8 +11,60 @@ namespace CSharpMasterClass
         {
 
             //StructsExample();
-            EnumsExample();
+            //EnumsExample();
+            //MathExample();
+            //RandomExample();
+            DateTimeExample();
 
+        }
+
+        public static void DateTimeExample()
+        {
+            DateTime dateTime = new DateTime(1988, 5, 31);
+
+            Console.WriteLine($"My birthday is {dateTime}");
+
+            // write today on screen
+            Console.WriteLine($"{DateTime.Today}");
+            //write current time
+            Console.WriteLine($"{DateTime.Now}");
+
+            DateTime tomorrow = GetTomorrow();
+            Console.WriteLine($"Tomorrow will be {tomorrow}");
+            Console.WriteLine($"Tomorrow is {tomorrow.DayOfWeek}");
+
+            //display the time: x o'clock and y minutes and z seconds
+            DateTime now = DateTime.Now;
+            Console.WriteLine($"{now.Hour} o'clock and {now.Minute} minutes and {now.Second} seconds");
+        }
+
+        static DateTime GetTomorrow()
+        {
+            return DateTime.Today.AddDays(1);
+        }
+
+        public static void RandomExample()
+        {
+            Random dice = new Random();
+            int numEyes;
+
+            for(int i = 0; i < 10; i++)
+            {
+                numEyes = dice.Next(1, 7);
+                Console.WriteLine(numEyes);
+            }
+        }
+
+        public static void MathExample()
+        {
+            Console.WriteLine($"Ceiling: {Math.Ceiling(12.3)}");
+            Console.WriteLine($"Floor: {Math.Floor(12.3)}");
+
+            int num1 = 13;
+            int num2 = 9;
+
+            Console.WriteLine($"Lower of num1 {num1} and num2 {num2} is {Math.Min(num1, num2)}");
+            Console.WriteLine($"Higher of num1 {num1} and num2 {num2} is {Math.Max(num1, num2)}");
         }
 
         public static void EnumsExample()
