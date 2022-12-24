@@ -1,13 +1,34 @@
 ﻿using System;
 namespace CSharpMasterClass
 {
+
+    enum Day { Mo, Tu, We, Th, Fr, Sa, Su }; // enums at namespace level
+    enum Month { Jan = 1, Feb, Mar, Apr, May, Jun, Jul = 12, Aug, Sep, Oct, Nov, Dec }
+
     public class Section11_AdditionalTopics
     {
         public static void Section11Main()
         {
 
-            StructsExample();
+            //StructsExample();
+            EnumsExample();
 
+        }
+
+        public static void EnumsExample()
+        {
+            Day friday = Day.Fr;
+            Day sunday = Day.Su;
+
+            Day a = Day.Fr;
+
+            Console.WriteLine(friday == a);
+
+            Console.WriteLine(Day.Mo);
+            Console.WriteLine((int)Day.Mo);
+
+            Console.WriteLine((int)Month.Feb);
+            Console.WriteLine((int)Month.Aug);
         }
 
         // structs are like classes but value types whereas classes are reference types
@@ -20,11 +41,8 @@ namespace CSharpMasterClass
             game1.developer = "Niantic";
             game1.rating = 3.5;
             game1.releaseDate = "01.07.2016";
+            game1.Display(); // only works when fully defined
 
-            Console.WriteLine($"Game 1's name is: {game1.name}");
-            Console.WriteLine($"Game 1 was developed by: {game1.developer}");
-            Console.WriteLine($"Game 1's rating is: {game1.rating}");
-            Console.WriteLine($"Game 1's was released on: {game1.releaseDate}");
         }
 
         // Access modifiers
@@ -42,6 +60,23 @@ namespace CSharpMasterClass
         public string developer;
         public double rating;
         public string releaseDate;
+
+
+        public Game(string name, string developer, double rating, string releaseDate)
+        {
+            this.name = name;
+            this.developer = developer;
+            this.rating = rating;
+            this.releaseDate = releaseDate;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine($"Game 1's name is: {name}");
+            Console.WriteLine($"Game 1 was developed by: {developer}");
+            Console.WriteLine($"Game 1's rating is: {rating}");
+            Console.WriteLine($"Game 1's was released on: {releaseDate}");
+        }
     }
 }
 
