@@ -14,7 +14,57 @@ namespace CSharpMasterClass
             //EnumsExample();
             //MathExample();
             //RandomExample();
-            DateTimeExample();
+            //DateTimeExample();
+            NullablesExample();
+
+        }
+
+        public static void NullablesExample()
+        {
+            int? num1 = null; // ? denotes nullable
+            int? num2 = 1337;
+
+            double? num3 = new Double?(); //empty nullable double
+            double? num4 = 3.14157;
+
+            bool? boolval = new bool?(); //empty nullable boolean
+
+            Console.WriteLine("Our nullable numbers are: {0}, {1}, {2}, {3}", num1, num2, num3, num4);
+            Console.WriteLine("The nullable boolean value is {0}", boolval);
+
+            bool? isMale = null;
+            if(isMale == true)
+            {
+                Console.WriteLine("User is male");
+            } else if (isMale == false)
+            {
+                Console.WriteLine("User is not male");
+            } else
+            {
+                Console.WriteLine("No gender chosen");
+            }
+
+            double? num6 = 13.1;
+            double? num7 = null;
+
+            double num8;
+
+            if(num6 == null) //check if null. if null, set to 0; else cast as double (non-null)
+            {
+                num8 = 0.0;
+            }
+            else
+            {
+                num8 = (double)num6;
+            }
+
+            Console.WriteLine($"Value of num8 is {num8}");
+
+            //shorter way of writing last example - null coalescing operator:
+            num8 = num6 ?? 0.00; // if num6 is null, then set to 0.00
+            Console.WriteLine($"Value of num8 is {num8}");
+            num8 = num7 ?? 0.00;
+            Console.WriteLine($"Value of num8 is {num8}");
 
         }
 
