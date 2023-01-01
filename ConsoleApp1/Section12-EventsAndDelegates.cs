@@ -9,8 +9,8 @@ namespace CSharpMasterClass
         public static void Section12Main()
         {
             //DelegatesExample();
-            //OurDelegatesExample();
-            CodingExercise();
+            OurDelegatesExample();
+            //CodingExercise();
 
         }
 
@@ -61,6 +61,30 @@ namespace CSharpMasterClass
             DisplayPeople("Kids", people, IsMinor);
             DisplayPeople("Adults", people, IsAdult);
             DisplayPeople("Seniors", people, IsSenior);
+
+            //variable filter of type FilterDelegate -> assign anonymous method
+            FilterDelegate filter = delegate (Person p)
+            {
+                return p.Age >= 20 && p.Age < 30;
+            };
+
+            DisplayPeople("In Their Twenties", people, filter);
+
+            //anonymous function directly in the method call
+            DisplayPeople("All", people, delegate (Person p)
+            {
+                return true;
+            });
+
+
+            //lambda statement!
+            string searchKeyword = "A";
+            DisplayPeople("Age > 20 with search keyword", people, p => {
+                return (p.Age > 20) && p.Name.Contains(searchKeyword);
+            });
+
+            //lambda expression!
+            DisplayPeople("Exactly 41", people, p => p.Age == 41);
         }
 
         //displays the list of people that pass the filter condition (returns true)
@@ -92,7 +116,6 @@ namespace CSharpMasterClass
         {
             return p.Age >= 65;
         }
-
 
         public static void DelegatesExample()
         {
